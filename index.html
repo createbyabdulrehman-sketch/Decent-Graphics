@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decent Graphics | Modern Graphic Design Studio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#030712',
+                            card: '#0B1528',
+                            blue: '#0055FF',
+                            cyan: '#00D8FF',
+                            glow: '#0088FF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'shine': 'shine 2s linear infinite',
+                    },
+                    keyframes: {
+                        pulseGlow: {
+                            '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        shine: {
+                            '0%': { backgroundPosition: '-200% 0' },
+                            '100%': { backgroundPosition: '200% 0' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #030712;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Gradient background with diagonal metallic streaks matching the logo backdrop */
+        .brand-bg-pattern {
+            background: 
+                radial-gradient(circle at 50% 20%, rgba(0, 85, 255, 0.25) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(0, 216, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(135deg, #020617 0%, #030d22 40%, #020817 100%);
+        }
+
+        .glass-panel {
+            background: rgba(11, 21, 40, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 136, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(0, 216, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 85, 255, 0.2);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(0, 136, 255, 0.6), 0 0 40px rgba(0, 85, 255, 0.4);
+        }
+
+        .metallic-text {
+            background: linear-gradient(180deg, #FFFFFF 0%, #B0C4DE 50%, #E6F0FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .blue-gradient-text {
+            background: linear-gradient(90deg, #FFFFFF 0%, #60A5FA 50%, #00D8FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030712;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e3a8a;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0055FF;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased brand-bg-pattern min-h-screen selection:bg-brand-blue selection:text-white">
+
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse-glow"></div>
+        <div class="absolute top-1/2 -right-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 1.5s;"></div>
+        <div class="absolute -bottom-40 left-1/3 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl animate-pulse-glow" style="animation-delay: 0.8s;"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 px-4 lg:px-8 py-3 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto glass-panel rounded-2xl px-6 py-3 flex items-center justify-between">
+            <!-- Brand Logo Mark -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-900 rounded-xl p-0.5 shadow-lg shadow-blue-500/30 group-hover:shadow-cyan-400/50 transition duration-300">
+                    <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center relative overflow-hidden">
+                        <!-- Custom SVG Monogram based on DG Logo -->
+                        <svg class="w-8 h-8 text-white transition-transform duration-300 group-hover:scale-110" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 30 C 20 20, 45 20, 45 35 L 45 70 C 45 80, 20 80, 20 65 C 20 50, 45 50, 45 50" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M80 45 C 80 30, 55 30, 55 45 L 55 80 C 55 90, 80 90, 80 75 C 80 60, 55 60, 55 60" stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-extrabold text-xl tracking-tight metallic-text leading-none">Decent</span>
+                    <span class="font-semibold text-xs tracking-widest text-cyan-400 uppercase">Graphics</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-cyan-400 transition-colors">Home</a>
+                <a href="#services" class="hover:text-cyan-400 transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-cyan-400 transition-colors">Portfolio</a>
+                <a href="#pricing" class="hover:text-cyan-400 transition-colors">Quote Estimator</a>
+                <a href="#about" class="hover:text-cyan-400 transition-colors">About</a>
+                <a href="#contact" class="hover:text-cyan-400 transition-colors">Contact</a>
+            </div>
+
+            <!-- WhatsApp Quick Button -->
+            <div class="hidden sm:flex items-center gap-3">
+                <a href="https://wa.me/923340024100?text=Hi%20Decent%20Graphics%2C%20I%20would%20like%20to%20inquire%20about%20your%20design%20services." target="_blank" rel="noopener noreferrer" 
+                   class="relative group overflow-hidden rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-green-600/30 hover:shadow-green-500/50 transition duration-300 flex items-center gap-2 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>+92 334 0024100</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white p-2 text-xl focus:outline-none" aria-label="Toggle Navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-7xl mx-auto mt-2 glass-panel rounded-2xl p-6 flex-col gap-4 text-center animate-fade-in">
+            <a href="#home" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">Home</a>
+            <a href="#services" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">Services</a>
+            <a href="#portfolio" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">Portfolio</a>
+            <a href="#pricing" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">Quote Estimator</a>
+            <a href="#about" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">About</a>
+            <a href="#contact" class="mobile-link py-2 text-gray-200 hover:text-cyan-400 font-medium">Contact</a>
+            <a href="https://wa.me/923340024100?text=Hi%20Decent%20Graphics%2C%20I%20would%20like%20to%20inquire%20about%20your%20design%20services." target="_blank" class="mt-2 bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-xl font-semibold flex items-center justify-center gap-2">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Quick WhatsApp Order
+            </a>
+        </div>
+    </header>
+
+    <section id="home" class="relative z-10 pt-12 pb-20 lg:pt-20 lg:pb-32 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Text Content -->
+            <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyan-500/30 text-cyan-400 text-xs sm:text-sm font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span>PREMIUM GRAPHIC & BRANDING STUDIO</span>
+                </div>
+
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-none">
+                    Transforming Visions into <br class="hidden sm:block"/>
+                    <span class="blue-gradient-text text-glow">3D Metallic & Modern</span> Visuals
+                </h1>
+
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+                    Elevate your business presence with high-impact 3D logos, custom typography, social media graphics, and premium vector identities designed to capture authority and trust.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                    <a href="https://wa.me/923340024100?text=Hello%20Decent%20Graphics!%20I%20want%20to%20start%20a%20new%20design%20project." target="_blank" rel="noopener noreferrer" 
+                       class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-600 via-brand-blue to-cyan-500 text-white font-bold text-base shadow-xl shadow-blue-600/40 hover:shadow-cyan-400/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3 group">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Start Project on WhatsApp</span>
+                        <i class="fa-solid fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+
+                    <a href="#portfolio" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel text-white font-semibold text-base hover:bg-slate-800/80 hover:border-cyan-400/50 transition duration-300 flex items-center justify-center gap-2">
+                        <span>Explore Portfolio</span>
+                        <i class="fa-solid fa-angle-down text-sm"></i>
+                    </a>
+                </div>
+
+                <!-- Live Social Verification Badge -->
+                <div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-gray-400 font-medium">
+                    <a href="https://facebook.com/DecentGraphicsdesigns" target="_blank" class="flex items-center gap-2 hover:text-cyan-400 transition">
+                        <i class="fa-brands fa-facebook-f text-blue-500 text-sm"></i>
+                        <span>DecentGraphicsdesigns</span>
+                    </a>
+                    <a href="https://instagram.com/Decentgraphics7" target="_blank" class="flex items-center gap-2 hover:text-cyan-400 transition">
+                        <i class="fa-brands fa-instagram text-pink-500 text-sm"></i>
+                        <span>Decentgraphics7</span>
+                    </a>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-star text-amber-400"></i>
+                        <span>5.0 Rated Graphic Studio</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 3D Glowing Brand Logo Presentation (Matching user logo structure) -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="relative w-full max-w-md aspect-square animate-float">
+                    
+                    <!-- Ambient Glow Behind Card -->
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-3xl blur-2xl opacity-50 animate-pulse-glow"></div>
+                    
+                    <!-- Main Card Mirroring the reference image theme -->
+                    <div class="relative w-full h-full rounded-3xl glass-panel p-8 flex flex-col items-center justify-between border-2 border-cyan-500/30 overflow-hidden shadow-2xl">
+                        
+                        <!-- Diagonal Metallic Shimmer Lines -->
+                        <div class="absolute inset-0 bg-[linear-gradient(115deg,transparent_30%,rgba(255,255,255,0.08)_50%,transparent_70%)] pointer-events-none"></div>
+
+                        <div class="text-right w-full flex justify-between items-center text-xs text-cyan-400 font-mono">
+                            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400"></span> ACTIVE STUDIO</span>
+                            <span>OFFICIAL LOGO MARK</span>
+                        </div>
+
+                        <!-- Central Metallic 3D Logo Symbol 'dg' -->
+                        <div class="my-auto text-center flex flex-col items-center py-4">
+                            <!-- Styled SVG Logo Concept mirroring exact DG logo structure -->
+                            <div class="relative group cursor-pointer mb-4">
+                                <div class="absolute -inset-2 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-500"></div>
+                                <div class="relative px-8 py-6 bg-slate-950 rounded-2xl border border-slate-700/80 flex items-center justify-center">
+                                    <svg class="w-40 h-28 drop-shadow-[0_10px_20px_rgba(0,136,255,0.8)]" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <!-- Outer 'd' and 'g' interlocking design -->
+                                        <path d="M 35 30 C 15 30, 15 70, 35 70 C 55 70, 55 15, 55 15 L 55 75" stroke="url(#metalGrad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M 95 45 C 75 45, 75 85, 95 85 C 115 85, 115 45, 115 45 L 115 105 C 115 115, 80 115, 75 105" stroke="url(#metalGrad)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+                                        
+                                        <!-- Text Decent Graphics inside logo frame -->
+                                        <defs>
+                                            <linearGradient id="metalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#FFFFFF" />
+                                                <stop offset="40%" stop-color="#D0E3FF" />
+                                                <stop offset="70%" stop-color="#00A3FF" />
+                                                <stop offset="100%" stop-color="#0047FF" />
+                                            </linearGradient>
+                                        </defs>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <h2 class="text-3xl font-black tracking-tight text-white">Decent Graphics</h2>
+                            <p class="text-cyan-400 text-sm font-medium tracking-widest mt-1">CREATIVE STUDIO</p>
+                        </div>
+
+                        <!-- Direct WhatsApp Bar inside Card -->
+                        <a href="https://wa.me/923340024100" target="_blank" class="w-full bg-emerald-600/90 hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-3 transition shadow-lg">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span class="tracking-wider">+92 334 0024100</span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="services" class="py-20 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-2">Our Capabilities</h2>
+            <p class="text-3xl sm:text-5xl font-extrabold text-white">High-Impact Design Services</p>
+            <p class="text-gray-400 mt-4 text-base">Crafted with precision, high-resolution rendering, and tailored specifically to boost your company's prestige.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Service 1 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-cube"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">3D Metallic Logos</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Eye-catching 3D glowing and chrome-finished logo designs engineered for tech companies, studios, and modern businesses.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-vector-square"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Brand Identity & Branding</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Complete corporate identity guidelines including color palettes, typography specs, brand guidelines, and vector source files.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Business Cards & Stationery</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Print-ready double-sided business card designs, letterheads, envelopes, and premium metallic foil mockups.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-photo-film"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Social Media Banners & Posts</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        High-converting social media headers for Facebook, Instagram, YouTube banners, thumbnail art, and promo posters.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-font"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Typography & Emblems</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Custom monogram creation, sleek typography artwork, esports badges, and intricate metallic crests.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="glass-panel p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300 group flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-cyan-400 text-2xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-bezier-curve"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Vector Tracing & Redesign</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Convert low-resolution images into scalable, infinite-resolution vector AI/EPS files or modernize legacy logos.
+                    </p>
+                </div>
+                <a href="#pricing" class="text-cyan-400 text-sm font-semibold inline-flex items-center gap-2 group-hover:text-white transition">
+                    <span>Estimate Price</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="portfolio" class="py-20 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="text-center max-w-3xl mx-auto mb-12">
+            <h2 class="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-2">Selected Works</h2>
+            <p class="text-3xl sm:text-5xl font-extrabold text-white">Featured Portfolio Showcase</p>
+            <p class="text-gray-400 mt-4 text-base">Explore our recent projects created for clients across social media, tech, and retail.</p>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="flex flex-wrap items-center justify-center gap-3 mb-12" id="portfolioFilter">
+            <button data-filter="all" class="filter-btn active px-6 py-2.5 rounded-xl text-sm font-semibold bg-blue-600 text-white shadow-lg shadow-blue-500/30 transition">All Projects</button>
+            <button data-filter="logo" class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel text-gray-300 hover:text-white transition">3D Logos</button>
+            <button data-filter="social" class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel text-gray-300 hover:text-white transition">Social Media Graphics</button>
+            <button data-filter="branding" class="filter-btn px-6 py-2.5 rounded-xl text-sm font-semibold glass-panel text-gray-300 hover:text-white transition">Branding Kits</button>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="portfolioGrid">
+            
+            <!-- Item 1: 3D Metallic DG Concept -->
+            <div class="portfolio-item logo glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/40 to-cyan-500/20 group-hover:opacity-100 transition duration-300"></div>
+                    <!-- Custom SVG Preview Graphic matching Blue Metallic Style -->
+                    <svg class="w-36 h-36 text-white group-hover:scale-110 transition duration-500 drop-shadow-[0_0_20px_rgba(0,136,255,0.8)]" viewBox="0 0 100 100" fill="none">
+                        <path d="M20 30 L50 30 A 20 20 0 0 1 50 70 L20 70 Z" stroke="#00D8FF" stroke-width="8" />
+                        <path d="M50 30 L80 30 A 20 20 0 0 1 80 70 L50 70 L50 90" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+                    </svg>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Metallic Monogram Logo', 'High Gloss 3D Electric Blue Emblem design created for Decent Graphics branding line.', 'logo')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">3D Logo Design</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Metallic 'DG' Emblem</h3>
+                </div>
+            </div>
+
+            <!-- Item 2: Social Media Banner -->
+            <div class="portfolio-item social glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-900/60 to-purple-900/40"></div>
+                    <div class="text-center p-6 relative z-10 group-hover:scale-105 transition duration-500">
+                        <span class="text-2xl font-black text-white">DECENT GRAPHICS</span>
+                        <p class="text-cyan-400 text-xs font-mono mt-1">+92 334 0024100</p>
+                        <div class="mt-4 inline-block px-4 py-1.5 rounded-full bg-blue-600/60 border border-cyan-400/30 text-xs text-white">Facebook Header Banner</div>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Decent Graphics Official Banner', 'Full social media kit including cover photos and promotional posts styled with cyan glow accents.', 'social')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Social Media Kit</span>
+                    <h3 class="text-xl font-bold text-white mt-1">FB & Instagram Promo Banner</h3>
+                </div>
+            </div>
+
+            <!-- Item 3: Business Card Branding -->
+            <div class="portfolio-item branding glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="w-48 h-28 rounded-xl bg-gradient-to-br from-slate-900 to-blue-950 border border-blue-500/40 p-4 shadow-2xl flex flex-col justify-between group-hover:rotate-3 group-hover:scale-110 transition duration-500">
+                        <div class="flex justify-between items-start">
+                            <div class="font-extrabold text-sm text-white">DG STUDIO</div>
+                            <i class="fa-solid fa-wifi text-cyan-400 text-xs"></i>
+                        </div>
+                        <div class="text-[10px] text-gray-300">
+                            <div>DecentGraphicsdesigns</div>
+                            <div class="text-cyan-400">+92 334 0024100</div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Luxury Corporate Business Card', 'Metallic matte blue print mockups with embossed metallic foil text.', 'branding')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Print & Branding</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Metallic Luxury Stationery</h3>
+                </div>
+            </div>
+
+            <!-- Item 4: Esports Typography emblem -->
+            <div class="portfolio-item logo glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="w-32 h-32 rounded-full border-4 border-cyan-400/60 flex items-center justify-center relative group-hover:rotate-12 transition duration-500">
+                        <i class="fa-solid fa-shield-halved text-5xl text-blue-500"></i>
+                        <span class="absolute text-xs font-black tracking-widest text-white bg-slate-950 px-2 border border-cyan-400">DG CREST</span>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Championship Crest Emblem', 'Custom gaming and esports typography badge with metallic shading.', 'logo')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Typography Design</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Championship Shield Crest</h3>
+                </div>
+            </div>
+
+            <!-- Item 5: Social Media Campaign -->
+            <div class="portfolio-item social glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="grid grid-cols-2 gap-2 p-4 w-full h-full opacity-80 group-hover:opacity-100 transition duration-500">
+                        <div class="bg-blue-900/40 rounded-lg p-2 border border-blue-500/20 flex items-center justify-center text-xs font-bold text-cyan-300">POST #1</div>
+                        <div class="bg-blue-900/40 rounded-lg p-2 border border-blue-500/20 flex items-center justify-center text-xs font-bold text-cyan-300">POST #2</div>
+                        <div class="bg-blue-900/40 rounded-lg p-2 border border-blue-500/20 flex items-center justify-center text-xs font-bold text-cyan-300">POST #3</div>
+                        <div class="bg-blue-900/40 rounded-lg p-2 border border-blue-500/20 flex items-center justify-center text-xs font-bold text-cyan-300">POST #4</div>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Instagram Brand Grid Layout', 'Consistent blue and neon theme post templates designed for higher engagement.', 'social')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Instagram Kit</span>
+                    <h3 class="text-xl font-bold text-white mt-1">Social Feed Campaign Design</h3>
+                </div>
+            </div>
+
+            <!-- Item 6: Vector Logo Tracing -->
+            <div class="portfolio-item branding glass-panel rounded-2xl overflow-hidden group border border-slate-800 hover:border-cyan-500/50 transition-all duration-300">
+                <div class="relative h-64 overflow-hidden bg-slate-950 flex items-center justify-center">
+                    <div class="flex items-center gap-4">
+                        <div class="text-center">
+                            <span class="text-[10px] text-gray-500 block">BEFORE (RASTER)</span>
+                            <div class="w-16 h-16 bg-slate-900 rounded border border-gray-700 flex items-center justify-center text-gray-600">Low-Res</div>
+                        </div>
+                        <i class="fa-solid fa-right-long text-cyan-400 text-xl"></i>
+                        <div class="text-center">
+                            <span class="text-[10px] text-cyan-400 block font-bold">AFTER (VECTOR)</span>
+                            <div class="w-20 h-20 bg-blue-600/30 rounded border-2 border-cyan-400 flex items-center justify-center text-white font-extrabold shadow-lg shadow-cyan-400/30">HD Vector</div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-0 bg-slate-950/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
+                        <button onclick="openModal('Vector Logo Recreation', 'Precision pen-tool vector tracing converting low-res logos into infinite scale AI/SVG formats.', 'branding')" class="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center shadow-lg hover:scale-110 transition">
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <span class="text-xs font-semibold text-cyan-400 uppercase tracking-wider">Vector Redesign</span>
+                    <h3 class="text-xl font-bold text-white mt-1">HD Vector Tracing & Refinement</h3>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="pricing" class="py-20 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="glass-panel rounded-3xl p-6 sm:p-12 border-2 border-blue-500/30 relative overflow-hidden">
+            
+            <div class="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Calculator Controls -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div>
+                        <span class="text-cyan-400 text-xs font-bold tracking-widest uppercase">Instant Project Quote</span>
+                        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Interactive Price Estimator</h2>
+                        <p class="text-gray-400 text-sm mt-2">Select your desired design services and delivery speed to generate a pre-formatted order summary.</p>
+                    </div>
+
+                    <!-- Select Service Type -->
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-200">Select Design Package:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="packageOptions">
+                            <label class="cursor-pointer glass-panel p-4 rounded-xl border border-slate-700 flex items-center justify-between hover:border-cyan-400 transition bg-slate-900/50">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="design_package" value="30" data-name="3D Metallic Logo" class="accent-cyan-400" checked>
+                                    <span class="text-sm font-medium text-white">3D Metallic Logo</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">$30</span>
+                            </label>
+
+                            <label class="cursor-pointer glass-panel p-4 rounded-xl border border-slate-700 flex items-center justify-between hover:border-cyan-400 transition bg-slate-900/50">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="design_package" value="50" data-name="Complete Brand Identity" class="accent-cyan-400">
+                                    <span class="text-sm font-medium text-white">Full Brand Identity</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">$50</span>
+                            </label>
+
+                            <label class="cursor-pointer glass-panel p-4 rounded-xl border border-slate-700 flex items-center justify-between hover:border-cyan-400 transition bg-slate-900/50">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="design_package" value="20" data-name="Business Card Design" class="accent-cyan-400">
+                                    <span class="text-sm font-medium text-white">Business Card</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">$20</span>
+                            </label>
+
+                            <label class="cursor-pointer glass-panel p-4 rounded-xl border border-slate-700 flex items-center justify-between hover:border-cyan-400 transition bg-slate-900/50">
+                                <div class="flex items-center gap-3">
+                                    <input type="radio" name="design_package" value="25" data-name="Social Media Cover/Banner" class="accent-cyan-400">
+                                    <span class="text-sm font-medium text-white">Social Banner</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">$25</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Add-ons Checklist -->
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-200">Additional Add-ons:</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            <label class="cursor-pointer glass-panel p-3 rounded-xl border border-slate-800 flex items-center justify-between hover:border-cyan-400 transition">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" value="15" data-name="Editable Vector Source File (AI/EPS)" class="addon-checkbox accent-cyan-400">
+                                    <span class="text-xs text-gray-300">Source Files (.AI, .EPS)</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">+$15</span>
+                            </label>
+
+                            <label class="cursor-pointer glass-panel p-3 rounded-xl border border-slate-800 flex items-center justify-between hover:border-cyan-400 transition">
+                                <div class="flex items-center gap-2">
+                                    <input type="checkbox" value="10" data-name="3D Real Mockup Presentation" class="addon-checkbox accent-cyan-400">
+                                    <span class="text-xs text-gray-300">Extra 3D Mockups</span>
+                                </div>
+                                <span class="text-xs font-mono text-cyan-400">+$10</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Speed -->
+                    <div class="space-y-3">
+                        <label class="text-sm font-semibold text-gray-200">Delivery Timeframe:</label>
+                        <select id="deliverySpeed" class="w-full bg-slate-900 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-cyan-400">
+                            <option value="0" data-name="Standard (2-3 Days)">Standard Delivery (2-3 Days)</option>
+                            <option value="15" data-name="Express Superfast (24 Hours)">Express Delivery - 24 Hours (+ $15)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Live Price Summary Box -->
+                <div class="lg:col-span-5">
+                    <div class="bg-slate-950/80 rounded-2xl p-6 border border-cyan-500/40 shadow-2xl flex flex-col justify-between h-full space-y-6">
+                        <div>
+                            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
+                                <span class="text-xs font-bold tracking-widest text-gray-400 uppercase">Estimated Total</span>
+                                <span class="text-xs px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded">Instant Quote</span>
+                            </div>
+
+                            <div class="my-6 text-center">
+                                <span class="text-sm text-gray-400 font-mono">USD</span>
+                                <div class="text-5xl font-black text-white metallic-text mt-1" id="totalPriceDisplay">$30</div>
+                                <span class="text-xs text-emerald-400 font-medium">Includes Unlimited Revisions</span>
+                            </div>
+
+                            <div class="space-y-2 text-xs text-gray-300 bg-slate-900/60 p-4 rounded-xl border border-slate-800">
+                                <div class="flex justify-between"><span class="text-gray-400">Selected Package:</span> <span id="summaryPackage" class="font-semibold text-white">3D Metallic Logo</span></div>
+                                <div class="flex justify-between"><span class="text-gray-400">Delivery Speed:</span> <span id="summaryDelivery" class="font-semibold text-white">Standard (2-3 Days)</span></div>
+                                <div class="flex justify-between"><span class="text-gray-400">Add-ons Count:</span> <span id="summaryAddons" class="font-semibold text-white">0 Selected</span></div>
+                            </div>
+                        </div>
+
+                        <!-- Submit via WhatsApp -->
+                        <button onclick="sendCalculatedOrder()" class="w-full py-4 rounded-xl bg-gradient-to-r from-emerald-500 to-green-600 hover:from-emerald-400 hover:to-green-500 text-white font-bold text-sm tracking-wide shadow-xl shadow-green-600/30 transition duration-300 flex items-center justify-center gap-3">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                            <span>Send Order Inquiry on WhatsApp</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="py-20 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6">
+                <span class="text-cyan-400 text-sm font-bold tracking-widest uppercase">About Decent Graphics</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold text-white">Delivering Premium Visual Impact Since Day One</h2>
+                <p class="text-gray-300 leading-relaxed text-base">
+                    Decent Graphics is a specialized graphic design studio specializing in modern 3D metallic logos, brand identities, and high-converting marketing visuals. We combine slick metallic textures, vibrant lighting effects, and clean vector precision to make your brand impossible to ignore.
+                </p>
+
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="glass-panel p-4 rounded-xl border-l-4 border-l-cyan-400">
+                        <div class="text-3xl font-black text-white">500+</div>
+                        <div class="text-xs text-gray-400 mt-1">Logos Designed</div>
+                    </div>
+                    <div class="glass-panel p-4 rounded-xl border-l-4 border-l-blue-500">
+                        <div class="text-3xl font-black text-white">100%</div>
+                        <div class="text-xs text-gray-400 mt-1">Client Satisfaction</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Client Testimonials Block -->
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                    <i class="fa-solid fa-quote-left text-cyan-400"></i>
+                    <span>What Our Clients Say</span>
+                </h3>
+
+                <!-- Testimonial Card 1 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic">"Decent Graphics made an outstanding 3D logo for my tech business. The metallic finish and lightning response on WhatsApp was super impressive!"</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-blue-600 flex items-center justify-center text-white font-bold text-xs">AH</div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Ali Hassan</div>
+                            <div class="text-xs text-gray-400">E-Commerce Brand Owner</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="glass-panel p-6 rounded-2xl border border-slate-800">
+                    <div class="flex items-center gap-1 text-amber-400 text-xs mb-3">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 text-sm italic">"Fast delivery and ultra high quality social media banners. Saved their WhatsApp number immediately for all future graphics."</p>
+                    <div class="mt-4 flex items-center gap-3">
+                        <div class="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center text-white font-bold text-xs">SR</div>
+                        <div>
+                            <div class="text-sm font-bold text-white">Shahzaib Raza</div>
+                            <div class="text-xs text-gray-400">Digital Marketing Agency</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 px-4 max-w-7xl mx-auto relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            
+            <!-- Left Info Panel -->
+            <div class="lg:col-span-5 space-y-8">
+                <div>
+                    <span class="text-cyan-400 text-sm font-bold tracking-widest uppercase">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Let's Discuss Your Project</h2>
+                    <p class="text-gray-400 text-sm mt-3 leading-relaxed">
+                        Have a custom design request or need instant consultation? Connect directly through our social media handles or phone number.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- WhatsApp Box -->
+                    <a href="https://wa.me/923340024100" target="_blank" class="glass-panel p-5 rounded-2xl flex items-center gap-4 hover:border-emerald-500 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-2xl group-hover:scale-110 transition">
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Official WhatsApp Contact</div>
+                            <div class="text-lg font-bold text-white">+92 334 0024100</div>
+                        </div>
+                    </a>
+
+                    <!-- Facebook Box -->
+                    <a href="https://facebook.com/DecentGraphicsdesigns" target="_blank" class="glass-panel p-5 rounded-2xl flex items-center gap-4 hover:border-blue-500 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 text-2xl group-hover:scale-110 transition">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Facebook Page</div>
+                            <div class="text-lg font-bold text-white">DecentGraphicsdesigns</div>
+                        </div>
+                    </a>
+
+                    <!-- Instagram Box -->
+                    <a href="https://instagram.com/Decentgraphics7" target="_blank" class="glass-panel p-5 rounded-2xl flex items-center gap-4 hover:border-pink-500 transition group">
+                        <div class="w-12 h-12 rounded-xl bg-pink-600/20 border border-pink-500/40 flex items-center justify-center text-pink-400 text-2xl group-hover:scale-110 transition">
+                            <i class="fa-brands fa-instagram"></i>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-400">Instagram Handle</div>
+                            <div class="text-lg font-bold text-white">Decentgraphics7</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Message Builder Form -->
+            <div class="lg:col-span-7">
+                <div class="glass-panel rounded-3xl p-8 border border-slate-800">
+                    <h3 class="text-2xl font-bold text-white mb-6">Send Direct Custom Message</h3>
+                    
+                    <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">Your Name</label>
+                                <input type="text" id="custName" required placeholder="e.g. John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-gray-300 mb-2">Company / Brand Name</label>
+                                <input type="text" id="custBrand" placeholder="e.g. Acme Studio" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">Project Type</label>
+                            <select id="custService" class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400">
+                                <option value="3D Metallic Logo">3D Metallic Logo Design</option>
+                                <option value="Complete Brand Identity">Full Brand Identity Guidelines</option>
+                                <option value="Business Cards & Stationery">Business Cards & Print Kit</option>
+                                <option value="Social Media Graphics">Social Media Banner / Poster</option>
+                                <option value="Vector Tracing">Vector Tracing / Image Vectorization</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 mb-2">Project Details & Requirements</label>
+                            <textarea id="custMessage" rows="4" required placeholder="Describe your preferred colors, text, or ideas..." class="w-full bg-slate-900 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-cyan-400"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold text-sm tracking-wide shadow-xl shadow-blue-600/30 transition duration-300 flex items-center justify-center gap-2">
+                            <i class="fa-paper-plane fa-solid"></i>
+                            <span>Send Order Message via WhatsApp</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-800/80 bg-slate-950/80 pt-16 pb-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 pb-12 border-b border-slate-800">
+                
+                <!-- Footer Brand info -->
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center font-black text-white text-lg">dg</div>
+                        <span class="text-2xl font-black metallic-text">Decent Graphics</span>
+                    </div>
+                    <p class="text-gray-400 text-sm max-w-sm leading-relaxed">
+                        Transforming brands through high-impact 3D metallic logos, slick social media design, and complete visual identities.
+                    </p>
+                </div>
+
+                <!-- Navigation Quick Links -->
+                <div class="md:col-span-3 space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Quick Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#home" class="hover:text-cyan-400 transition">Home</a></li>
+                        <li><a href="#services" class="hover:text-cyan-400 transition">Services</a></li>
+                        <li><a href="#portfolio" class="hover:text-cyan-400 transition">Portfolio Showcase</a></li>
+                        <li><a href="#pricing" class="hover:text-cyan-400 transition">Price Calculator</a></li>
+                        <li><a href="#contact" class="hover:text-cyan-400 transition">Contact Studio</a></li>
+                    </ul>
+                </div>
+
+                <!-- Direct Social Channels -->
+                <div class="md:col-span-4 space-y-3">
+                    <h4 class="text-white font-bold text-sm uppercase tracking-wider">Connect With Us</h4>
+                    <p class="text-xs text-gray-400">Follow us on social media for daily project showcases & design updates.</p>
+                    <div class="flex items-center gap-3 pt-2">
+                        <a href="https://wa.me/923340024100" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-emerald-400 hover:bg-emerald-600 hover:text-white transition">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                        </a>
+                        <a href="https://facebook.com/DecentGraphicsdesigns" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-blue-400 hover:bg-blue-600 hover:text-white transition">
+                            <i class="fa-brands fa-facebook-f text-lg"></i>
+                        </a>
+                        <a href="https://instagram.com/Decentgraphics7" target="_blank" class="w-10 h-10 rounded-xl glass-panel flex items-center justify-center text-pink-400 hover:bg-pink-600 hover:text-white transition">
+                            <i class="fa-brands fa-instagram text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+                <p>&copy; 2026 Decent Graphics. All Rights Reserved.</p>
+                <p class="text-gray-400">WhatsApp Hotline: <span class="text-cyan-400 font-mono">+92 334 0024100</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Widget -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="https://wa.me/923340024100?text=Hi%20Decent%20Graphics!%20I%20have%20a%20design%20query." target="_blank" rel="noopener noreferrer"
+           class="group relative flex items-center justify-center w-14 h-14 bg-emerald-500 text-white rounded-full shadow-2xl shadow-emerald-500/50 hover:scale-110 transition duration-300">
+            <i class="fa-brands fa-whatsapp text-3xl"></i>
+            <span class="absolute right-16 bg-slate-900 text-white text-xs px-3 py-1.5 rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition duration-300 pointer-events-none border border-slate-700">
+                Chat on WhatsApp (+92 334 0024100)
+            </span>
+        </a>
+    </div>
+
+    <!-- Portfolio Lightbox Modal -->
+    <div id="portfolioModal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4">
+        <div class="glass-panel max-w-2xl w-full rounded-3xl p-6 sm:p-8 border border-cyan-500/30 relative animate-fade-in">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl p-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="text-xs font-bold text-cyan-400 uppercase tracking-widest mb-1" id="modalCategory">Project Preview</div>
+            <h3 class="text-2xl font-bold text-white mb-3" id="modalTitle">Project Title</h3>
+            <p class="text-gray-300 text-sm mb-6" id="modalDesc">Project Description</p>
+            <div class="bg-slate-900 rounded-2xl h-64 flex items-center justify-center mb-6 border border-slate-800" id="modalPreviewBox">
+                <!-- Dynamic Content injected by JS -->
+            </div>
+            <a href="https://wa.me/923340024100?text=Hi%2C%20I%20am%20interested%20in%20a%20design%20similar%20to%20your%20portfolio%20project." target="_blank" 
+               class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Order Similar Design on WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle Logic
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Portfolio Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-blue-600', 'text-white');
+                    b.classList.add('glass-panel', 'text-gray-300');
+                });
+                btn.classList.add('bg-blue-600', 'text-white');
+                btn.classList.remove('glass-panel', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+                portfolioItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Controls
+        function openModal(title, desc, category) {
+            document.getElementById('modalTitle').innerText = title;
+            document.getElementById('modalDesc').innerText = desc;
+            document.getElementById('modalCategory').innerText = category + " showcase";
+            
+            const previewBox = document.getElementById('modalPreviewBox');
+            previewBox.innerHTML = `<div class="text-center p-6"><i class="fa-solid fa-cube text-5xl text-cyan-400 mb-2"></i><div class="text-white font-bold">${title}</div><div class="text-xs text-gray-400">High-Resolution Render Preview</div></div>`;
+
+            const modal = document.getElementById('portfolioModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('portfolioModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        // Quote Calculator Logic
+        function calculateTotal() {
+            let total = 0;
+            
+            // Selected package
+            const selectedPackage = document.querySelector('input[name="design_package"]:checked');
+            const pkgPrice = parseInt(selectedPackage.value);
+            const pkgName = selectedPackage.getAttribute('data-name');
+            total += pkgPrice;
+
+            // Delivery speed
+            const deliverySelect = document.getElementById('deliverySpeed');
+            const deliveryPrice = parseInt(deliverySelect.value);
+            const deliveryName = deliverySelect.options[deliverySelect.selectedIndex].getAttribute('data-name');
+            total += deliveryPrice;
+
+            // Addons
+            const addons = document.querySelectorAll('.addon-checkbox:checked');
+            let addonCount = 0;
+            addons.forEach(addon => {
+                total += parseInt(addon.value);
+                addonCount++;
+            });
+
+            // Update UI Displays
+            document.getElementById('totalPriceDisplay').innerText = `$${total}`;
+            document.getElementById('summaryPackage').innerText = pkgName;
+            document.getElementById('summaryDelivery').innerText = deliveryName;
+            document.getElementById('summaryAddons').innerText = `${addonCount} Selected`;
+
+            return { total, pkgName, deliveryName, addonCount };
+        }
+
+        // Attach calculation listeners
+        document.querySelectorAll('input[name="design_package"], .addon-checkbox').forEach(input => {
+            input.addEventListener('change', calculateTotal);
+        });
+        document.getElementById('deliverySpeed').addEventListener('change', calculateTotal);
+
+        // Send Calculator Result to WhatsApp
+        function sendCalculatedOrder() {
+            const { total, pkgName, deliveryName, addonCount } = calculateTotal();
+            const text = `Hello Decent Graphics! I calculated an estimate on your website:%0A%0A- Package: ${pkgName}%0A- Delivery: ${deliveryName}%0A- Addons: ${addonCount} extra(s)%0A- Total Estimated Price: $${total}%0A%0AAvailable to start now?`;
+            window.open(`https://wa.me/923340024100?text=${text}`, '_blank');
+        }
+
+        // Contact Form Custom Message Builder
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('custName').value;
+            const brand = document.getElementById('custBrand').value || 'N/A';
+            const service = document.getElementById('custService').value;
+            const message = document.getElementById('custMessage').value;
+
+            const formattedMsg = `Hi Decent Graphics! I am reaching out from your website contact form:%0A%0A- Name: ${name}%0A- Brand Name: ${brand}%0A- Service Interested: ${service}%0A- Requirements: ${message}`;
+            window.open(`https://wa.me/923340024100?text=${formattedMsg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
